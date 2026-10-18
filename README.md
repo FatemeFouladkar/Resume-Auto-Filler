@@ -2,6 +2,8 @@
 
 A Chrome extension that imports a PDF, DOCX, or TXT résumé, extracts structured data with an LLM, lets the user review it, and fills JobVision and Jobinja.
 
+![alt text](image.png)
+
 ## What it does
 
 - Activates only on `jobvision.ir` and `jobinja.ir` pages.

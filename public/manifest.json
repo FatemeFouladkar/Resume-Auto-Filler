@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Resume Auto Filler",
+  "description": "Review and fill Iranian resume builders from a local resume file.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "114",
+  "permissions": ["storage", "tabs", "sidePanel"],
+  "host_permissions": [
+    "https://*.jobvision.ir/*",
+    "https://*.jobinja.ir/*",
+    "https://openrouter.ai/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Open Resume Auto Filler" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.jobvision.ir/*",
+        "https://*.jobinja.ir/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-bridge.js"],
+      "matches": ["https://*.jobinja.ir/*", "https://*.jobvision.ir/*"]
+    }
+  ]
+}
